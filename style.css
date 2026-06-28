@@ -1,0 +1,742 @@
+:root {
+    --farbe-pink: #ff2d95;
+    --farbe-blau: #3180ff;
+    --farbe-schwarz: #0d0d0d;
+    --farbe-weiss: #ffffff;
+    --farbe-hintergrund: #f9fafb;
+    --farbe-hintergrundblau: #111827;
+
+    --verlauf-akzent: linear-gradient(135deg, var(--farbe-pink), var(--farbe-blau));
+
+    --font-display: 'Geo', monospace;
+    --font-body: 'Space Mono', 'Courier New', monospace;
+}
+
+
+
+
+
+/* ----------BASIS---------- */
+
+
+
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--farbe-hintergrund);
+    color: var(--farbe-schwarz);
+    line-height: 1.6;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+
+
+
+
+
+
+
+
+
+/* ----------MOBILE (Standard)---------- */
+
+
+
+
+
+
+
+
+
+
+/* ----------NAVIGATION---------- */
+
+
+.site-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    background: transparent;
+    padding: 0.75rem 1.25rem;
+}
+
+.burger-btn {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: var(--farbe-hintergrundblau);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 0;
+    position: relative;
+    z-index: 300;
+}
+
+.burger-linie {
+    display: block;
+    height: 2px;
+    width: 22px;
+    background: var(--farbe-weiss);
+    border-radius: 2px;
+}
+
+.burger-linie-kurz {
+    width: 11px;
+    align-self: flex-start;
+    margin-left: 16px;
+}
+
+.nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 150;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.nav-overlay.is-open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.site-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 100vw;
+    min-width: unset;
+    background: var(--farbe-hintergrundblau);
+    z-index: 200;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 6rem;
+}
+
+.site-nav.is-open {
+    transform: translateX(0);
+}
+
+.site-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.site-nav a {
+    color: var(--farbe-weiss);
+    font-family: var(--font-body);
+    font-size: 1.75rem;
+    font-weight: 700;
+    transition: color 0.2s ease;
+}
+
+.site-nav a:hover {
+    color: var(--farbe-pink);
+}
+
+
+/* Animation Burger-Menü -> X */
+.burger-linie {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
+}
+
+.burger-btn.is-open .burger-linie:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.burger-btn.is-open .burger-linie-kurz {
+    opacity: 0;
+}
+
+.burger-btn.is-open .burger-linie:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+
+
+
+/*----------STARTSEITE----------*/
+
+
+
+
+
+/* ----------HERO---------- */
+
+
+.hero {
+    background-color: var(--farbe-hintergrund);
+    padding: 3rem 1.5rem 6rem;
+}
+
+/* Profilbild + Name/Text — auf Mobile gestapelt und zentriert */
+.hero-profil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Gradient-Ring um das Profilbild */
+.profil-ring {
+    flex-shrink: 0;
+    border-radius: 50%;
+    padding: 4px;
+    background: var(--verlauf-akzent);
+    transition: background 0.3s ease;
+    cursor: pointer;
+    margin-top: 4.5rem;
+}
+
+.profil-ring:hover {
+    background: var(--farbe-pink);
+}
+
+.profil-ring img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Name & Beschreibung */
+.hero-info {
+    text-align: center;
+}
+
+.hero-name {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--farbe-pink);
+}
+
+.hero-beschreibung {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--farbe-hintergrundblau);
+    margin-top: 0.6rem;
+    max-width: 40ch;
+}
+
+/* Begrüßungstext */
+.hero-gruss {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    color: var(--farbe-hintergrundblau);
+    margin-top: 6rem;
+    max-width: 60ch;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-gruss+.hero-gruss {
+    margin-top: 0.4rem;
+}
+
+
+/* ----------AUSWAHL ARBEITEN & PROJEKTE---------- */
+
+
+.auswahl-arbeiten,
+.footer {
+    text-align: center;
+    font-family: var(--font-body);
+    background-color: var(--farbe-hintergrundblau);
+    color: var(--farbe-hintergrund);
+    padding: 4rem 1.5rem;
+}
+
+.auswahl-arbeiten h2 {
+    color: var(--farbe-blau);
+    font-size: 2rem;
+    font-family: var(--font-display);
+}
+
+.auswahl-arbeiten>h3 {
+    margin-bottom: 5rem;
+}
+
+.auswahl-arbeiten>h3:first-of-type {
+    margin-bottom: 2rem;
+}
+
+
+.auswahl-projekte {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5rem;
+    padding: 1rem 2rem;
+}
+
+.auswahl-projekte li {
+    text-align: center;
+}
+
+
+/* ----------VERSETZER SCHATTEN RAHMEN HINTER KACHEL + ANIMATION BEI HOVER---------- */
+
+
+.auswahl-projekt::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 14px;
+    padding: 2px;
+    /* Randstärke */
+    background: linear-gradient(135deg, var(--farbe-pink), var(--farbe-blau));
+    /* Rand (inneres transparent) */
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    transform: translate(8px, 8px);
+    /* versetzt nach rechts + unten */
+    z-index: 0;
+    transition: opacity 0.15s ease;
+}
+
+/* Hauptkachel — Gradient-Rand */
+.projekt-kachel {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--farbe-pink), var(--farbe-blau));
+    padding: 3px;
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+/* Innerer dunkelblauer Hintergrund */
+.projekt-kachel-innen {
+    background: var(--farbe-hintergrundblau);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: background 0.15s ease;
+}
+
+/* Bild füllt oberen Bereich der Kachel */
+.projekt-kachel img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Bereich unter Bild: Titel + Button */
+.projekt-info {
+    padding: 1rem 1.2rem 1.4rem;
+    text-align: center;
+}
+
+.projekt-info h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--farbe-pink);
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    transition: color 0.15s ease;
+}
+
+/* Button-Styling */
+.projekt-btn {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--farbe-weiss);
+    border: 2px solid var(--farbe-weiss);
+    border-radius: 999px;
+    padding: 0.35rem 1.2rem;
+    margin-top: 1rem;
+    transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+
+/* ---HOVER: Kachel drückt sich in Schatten--- */
+
+
+/* Schatten verschwindet wenn Kachel draufdrückt */
+.auswahl-projekt:hover::before {
+    opacity: 0;
+}
+
+/* Kachel bewegt sich an Schatten-Position */
+.auswahl-projekt:hover .projekt-kachel {
+    transform: translate(8px, 8px);
+    background: var(--farbe-pink);
+}
+
+/* Hintergrund pink */
+.auswahl-projekt:hover .projekt-kachel-innen {
+    background: var(--farbe-pink);
+}
+
+/* Titel invertiert zu dunkelblau */
+.auswahl-projekt:hover .projekt-info h3 {
+    color: var(--farbe-hintergrundblau);
+}
+
+/* Button invertiert */
+.auswahl-projekt:hover .projekt-btn {
+    color: var(--farbe-hintergrundblau);
+    border-color: var(--farbe-hintergrundblau);
+}
+
+
+/* ----------FOOTER & WEITERLEITUNG---------- */
+
+
+.footer {
+    text-align: center;
+}
+
+.footer a:hover {
+    color: var(--farbe-pink);
+}
+
+.weiterleitung {
+    margin-top: 3rem;
+    margin-bottom: 10rem;
+}
+
+.weiterleitung a {
+    background: var(--verlauf-akzent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.weiterleitung a:hover {
+    background: none;
+    -webkit-text-fill-color: var(--farbe-pink);
+}
+
+.auswahl-projekt {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+
+
+
+
+
+/*----------PROJEKTE----------*/
+
+
+
+
+
+.projekte-intro {
+    background-color: var(--farbe-hintergrund);
+    text-align: center;
+    padding: 4rem 1.5rem 3rem;
+}
+
+.projekte-intro h1 {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    font-weight: 400;
+    color: var(--farbe-blau);
+    margin-bottom: 1rem;
+}
+
+.projekte-intro p {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--farbe-hintergrundblau);
+    max-width: 60ch;
+    margin: 0 auto;
+}
+
+.projekte-liste {
+    background-color: var(--farbe-hintergrundblau);
+    padding: 4rem 1.5rem;
+}
+
+/* Emoji */
+.projekt-info .projekt-emoji {
+    font-size: 2.25rem;
+    margin-bottom: 0.5rem;
+}
+
+/* h2 in Kachel — gleiche Styles wie h3 auf Startseite */
+.projekt-info h2 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--farbe-pink);
+    margin-bottom: 0.75rem;
+    line-height: 1.1;
+    transition: color 0.15s ease;
+}
+
+.projekt-info p {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--farbe-weiss);
+    line-height: 1.5;
+    transition: color 0.15s ease;
+}
+
+/* Hover: Titel und Text invertieren */
+.auswahl-projekt:hover .projekt-info h2 {
+    color: var(--farbe-hintergrundblau);
+}
+
+.auswahl-projekt:hover .projekt-info p {
+    color: var(--farbe-hintergrundblau);
+}
+
+
+
+
+
+/*----------ÜBER MICH----------*/
+
+
+
+
+
+.ueber-mich-inhalt {
+    background-color: var(--farbe-hintergrund);
+}
+
+.ueber-mich-kopf {
+    padding: 3rem 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.ueber-mich-kopf h1 {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    font-weight: 400;
+    color: var(--farbe-pink);
+    margin-top: 1.5rem;
+}
+
+.vorstellung {
+    background-color: var(--farbe-hintergrundblau);
+    color: var(--farbe-hintergrund);
+    padding: 2rem 1.5rem 4rem;
+    text-align: center;
+}
+
+.vorstellung h2 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--farbe-blau);
+    margin-bottom: 1rem;
+}
+
+.vorstellung section {
+    margin-bottom: 3rem;
+    max-width: 60ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.vorstellung section:last-child {
+    margin-bottom: 0;
+}
+
+.vorstellung p {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--farbe-hintergrund);
+}
+
+.vorstellung p+p {
+    margin-top: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+/* ----------DESKTOP (ab 768px)---------- */
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 768px) {
+
+
+    /*---Navigation für Desktop---*/
+
+
+    .site-header {
+        position: sticky;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background-color: var(--farbe-schwarz);
+        display: flex;
+        justify-content: center;
+    }
+
+    .burger-btn {
+        display: none;
+    }
+
+    .site-nav {
+        position: static;
+        height: auto;
+        width: auto;
+        min-width: unset;
+        background: transparent;
+        transform: none;
+        transition: none;
+        display: block;
+        padding: 0;
+    }
+
+    .site-nav ul {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        padding: 0.75rem 1rem;
+    }
+
+    .site-nav a {
+        font-size: 1rem;
+        font-weight: 400;
+        padding: 0.5rem 1.2rem;
+        border-radius: 999px;
+    }
+
+    .site-nav a:hover {
+        background-color: var(--farbe-weiss);
+        color: var(--farbe-schwarz);
+    }
+
+    .nav-overlay {
+        display: none;
+    }
+
+
+    /* Hero Desktop */
+
+
+    .hero {
+        padding: 4rem 3rem 3rem;
+    }
+
+    .hero-profil {
+        flex-direction: row;
+        align-items: flex-end;
+        gap: 0;
+    }
+
+    .profil-ring img {
+        width: 220px;
+        height: 220px;
+    }
+
+    .hero-info {
+        text-align: left;
+        margin-left: 1.5rem;
+        z-index: 1;
+    }
+
+    .hero-name {
+        font-size: 3.5rem;
+    }
+
+    .hero-beschreibung {
+        font-size: 0.9rem;
+    }
+
+    .hero-gruss {
+        text-align: left;
+        margin-left: 0;
+        margin-top: 2rem;
+    }
+}
+
+
+
+
+
+/* ----------DESKTOP (ab 1200px)---------- */
+
+
+
+
+
+@media (min-width: 1200px) {
+    .hero-name {
+        font-size: 4.5rem;
+    }
+}

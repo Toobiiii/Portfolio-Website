@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tobias Erhardt – Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geo&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <button class="burger-btn" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-nav">
+            <span class="burger-linie"></span>
+            <span class="burger-linie burger-linie-kurz"></span>
+            <span class="burger-linie"></span>
+        </button>
+
+        <div class="nav-overlay" id="nav-overlay"></div>
+
+        <nav class="site-nav" id="mobile-nav">
+            <ul>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="projekte.html">Projekte</a></li>
+                <li><a href="ueber-mich.html">Über mich</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero" aria-label="Vorstellung">
+            <div class="hero-profil">
+                <div class="profil-ring">
+                    <img src="bilder/profilbild.png" alt="Porträtfoto von Tobias Erhardt" width="300" height="300">
+                </div>
+                <div class="hero-info">
+                    <h1 class="hero-name">Tobias Erhardt</h1>
+                    <p class="hero-beschreibung">Medieninformatik-Student mit Interesse für Video- und
+                        Bildbearbeitung
+                        und Design</p>
+                </div>
+            </div>
+            <p class="hero-gruss">Hey 👋</p>
+            <p class="hero-gruss">Ich bin Tobi. Hier findest du eine Auswahl meiner bisherigen Projekte und
+                Arbeiten. Ich versuche, jedes davon mit Herz, Kreativität und einem Auge fürs Detail umzusetzen.</p>
+        </section>
+
+        <section class="auswahl-arbeiten" aria-label="Projektübersicht">
+            <h2>Ausgewählte Arbeiten</h2>
+            <h3>Ein Querschnitt aus Projekten der letzten Jahre – von Grafikdesign über
+                Videoarbeit bis hin zu
+                Webentwicklung.</h3>
+            <h3>Alle Projekte in voller Ausführung findest du auf der Projektseite!</h3>
+
+            <ul class="auswahl-projekte">
+                <li class="auswahl-projekt">
+                    <a href="projekt-1.html" class="projekt-kachel">
+                        <div class="projekt-kachel-innen">
+                            <img src="bilder/projekt-1.jpeg" alt="Vorschau Projekt 1">
+                            <div class="projekt-info">
+                                <h3>Ein kleines Stück Japan auf dem Campus</h3>
+                                <span class="projekt-btn">Mehr sehen</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="auswahl-projekt">
+                    <a href="projekt-2.html" class="projekt-kachel">
+                        <div class="projekt-kachel-innen">
+                            <img src="bilder/projekt-2.png" alt="Vorschau Projekt 2">
+                            <div class="projekt-info">
+                                <h3>Kurzfilm "The Gift"</h3>
+                                <span class="projekt-btn">Mehr sehen</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="auswahl-projekt">
+                    <a href="projekt-3.html" class="projekt-kachel">
+                        <div class="projekt-kachel-innen">
+                            <img src="bilder/projekt-3.png" alt="Vorschau Projekt 3">
+                            <div class="projekt-info">
+                                <h3>3D-Modell meiner Hand</h3>
+                                <span class="projekt-btn">Mehr sehen</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="auswahl-projekt">
+                    <a href="projekt-4.html" class="projekt-kachel">
+                        <div class="projekt-kachel-innen">
+                            <img src="bilder/projekt-4.png" alt="Vorschau Projekt 4">
+                            <div class="projekt-info">
+                                <h3>Brettspiel Final Harbor</h3>
+                                <span class="projekt-btn">Mehr sehen</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="auswahl-projekt">
+                    <a href="projekt-5.html" class="projekt-kachel">
+                        <div class="projekt-kachel-innen">
+                            <img src="bilder/projekt-5.1.png" alt="Vorschau Projekt 5">
+                            <div class="projekt-info">
+                                <h3>GeometryDash - Klon</h3>
+                                <span class="projekt-btn">Mehr sehen</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="auswahl-projekt">
+                    <a href="projekt-6.html" class="projekt-kachel">
+                        <div class="projekt-kachel-innen">
+                            <img src="bilder/projekt-6.jpg" alt="Vorschau Projekt 6">
+                            <div class="projekt-info">
+                                <h3>App ShareCar</h3>
+                                <span class="projekt-btn">Mehr sehen</span>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+
+            <p class="weiterleitung">Neugierig geworden? <a href=" projekte.html">Alle Projekte ansehen ➜</a></p>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Tobias Erhardt. All Rights Reserved.</p>
+        <nav aria-label="Footer-Navigation">
+            <ul>
+                <li><a href="impressum.html">Impressum</a></li>
+                <li><a href="datenschutz.html">Datenschutz</a></li>
+                <li><a href="kolophon.html">Kolophon</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
