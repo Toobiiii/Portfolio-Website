@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - Tobias Erhardt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Aldrich&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Geo:ital@0;1&family=Michroma&family=Nova+Square&family=Oxanium:wght@200..800&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Space+Grotesk:wght@300..700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <button class="burger-btn" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-nav">
+            <span class="burger-linie"></span>
+            <span class="burger-linie burger-linie-kurz"></span>
+            <span class="burger-linie"></span>
+        </button>
+
+        <div class="nav-overlay" id="nav-overlay"></div>
+
+        <nav class="site-nav" id="mobile-nav">
+            <ul>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="projekte.html">Projekte</a></li>
+                <li><a href="ueber-mich.html">Über mich</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </nav>
+        <noscript>
+            <div style="background: #111827; padding: 1rem; text-align: center; width: 100%;">
+                <a href="index.html" style="color: white; margin: 0 10px; text-decoration: none;">Startseite</a>
+                <a href="projekte.html" style="color: white; margin: 0 10px; text-decoration: none;">Projekte</a>
+                <a href="ueber-mich.html" style="color: white; margin: 0 10px; text-decoration: none;">Über mich</a>
+                <a href="kontakt.html" style="color: white; margin: 0 10px; text-decoration: none;">Kontakt</a>
+            </div>
+        </noscript>
+    </header>
+
+    <main class="kontakt-inhalt">
+
+        <section aria-label="Kontakt">
+            <p class="kontakt-emoji">📧</p>
+            <h1>Kontakt</h1>
+            <p class="kontakt-intro">Du hast ein Projekt, eine Frage oder möchtest einfach Hallo sagen? Schreib mir
+                gerne - ich melde mich so schnell wie möglich zurück!</p>
+        </section>
+
+        <section aria-label="Kontaktformular">
+            <h2>Nachricht schreiben</h2>
+
+            <form class="kontakt-form" method="post" action="https://mi.hs-flensburg.de/echo.php">
+
+                <div class="form-gruppe">
+                    <label for="vorname">Vorname</label>
+                    <input type="text" id="vorname" name="vorname" required autocomplete="given-name">
+                </div>
+
+                <div class="form-gruppe">
+                    <label for="nachname">Nachname</label>
+                    <input type="text" id="nachname" name="nachname" required autocomplete="family-name">
+                </div>
+
+                <div class="form-gruppe">
+                    <label for="email">E-Mail-Adresse</label>
+                    <input type="email" id="email" name="email" required autocomplete="email">
+                </div>
+
+                <div class="form-gruppe">
+                    <label for="betreff">Betreff</label>
+                    <input type="text" id="betreff" name="betreff" required>
+                </div>
+
+                <div class="form-gruppe">
+                    <label for="nachricht">Nachricht</label>
+                    <textarea id="nachricht" name="nachricht" rows="6" required></textarea>
+                </div>
+
+                <div class="form-gruppe-checkbox">
+                    <input type="checkbox" id="datenschutz" name="datenschutz" required>
+                    <label for="datenschutz">Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen
+                        und stimme der Verarbeitung meiner Daten zu.</label>
+                </div>
+
+                <div class="kontakt-submit-wrapper">
+                    <button type="submit" class="kontakt-btn">Nachricht senden</button>
+                </div>
+
+            </form>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Tobias Erhardt. All Rights Reserved.</p>
+        <nav aria-label="Footer-Navigation">
+            <ul>
+                <li><a href="impressum.html">Impressum</a></li>
+                <li><a href="datenschutz.html">Datenschutz</a></li>
+                <li><a href="dokumentation/kolophon.html">Kolophon</a></li>
+                <li><a href="dokumentation/index.html">Dokumentation</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
