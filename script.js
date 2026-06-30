@@ -1,3 +1,5 @@
+// Hamburger-Menü
+
 const burgerBtn = document.querySelector('.burger-btn');
 const mobileNav = document.getElementById('mobile-nav');
 const overlay = document.getElementById('nav-overlay');
