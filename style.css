@@ -1258,112 +1258,157 @@ ul {
 
 
 
+/* Heller Header-Bereich (Full-Width) */
 .projekt-detail-header {
     background-color: var(--farbe-hintergrund);
-    padding: 7rem 1.5rem 5rem 1.5rem;
+    padding: 4rem 1.5rem 6rem 1.5rem;
+    /* Viel Abstand nach unten zum blauen Part */
     width: 100%;
+}
+
+.projekt-header-innen {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.projekt-detail-titel {
+/* Pinker Titel im Display-Font */
+.projekt-titel {
     font-family: var(--font-display);
-    font-size: 2rem;
-    font-weight: 400;
     color: var(--farbe-pink);
+    font-size: 2.5rem;
     text-align: center;
     margin-bottom: 3rem;
-    max-width: 850px;
     line-height: 1.2;
 }
 
-.bilder-vergleich-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.bild-vergleich-rahmen {
-    flex: 1;
-    border-radius: 14px;
-    padding: 3px;
-    background: var(--verlauf-akzent);
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
-    z-index: 1;
-}
-
-.bild-vergleich-rahmen:hover {
-    transform: scale(1.04);
-    z-index: 2;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-}
-
-.bild-vergleich-box {
+/* Slider-Container-Basis */
+.slider-container {
     position: relative;
+    width: 100%;
+    max-width: 850px;
+    /* Perfekte Breite auf Desktop */
+    aspect-ratio: 16 / 9;
+    /* Behält immer das saubere Breitbild-Format bei */
     border-radius: 12px;
     overflow: hidden;
-    aspect-ratio: 16 / 10;
+    box-shadow: 0 20px 40px rgba(13, 13, 0, 0.15);
+    user-select: none;
 }
 
-.bild-vergleich-box img {
+/* Bilder-Styling innerhalb des Sliders */
+.slider-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.slider-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
 
-.bild-label {
+/* Das Vorher-Bild wird basierend auf der Variablen --slider-pos beschnitten */
+.img-vorher {
+    clip-path: inset(0 calc(100% - var(--slider-pos)) 0 0);
+}
+
+/* Vorher/Nachher Text-Labels im Bild */
+.slider-label {
     position: absolute;
     top: 1rem;
-    left: 1rem;
-    background: rgba(13, 13, 13, 0.75);
+    background: rgba(13, 13, 13, 0.7);
     color: var(--farbe-weiss);
     padding: 0.4rem 0.8rem;
-    font-family: var(--font-body);
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     border-radius: 4px;
-    z-index: 5;
+    pointer-events: none;
+    /* Ignoriert Klicks, damit der Slider darunter reagiert */
 }
 
 .label-vorher {
-    border-left: 3px solid var(--farbe-pink);
+    left: 1rem;
+    border-left: 2px solid var(--farbe-pink);
 }
 
 .label-nachher {
-    border-left: 3px solid var(--farbe-blau);
+    right: 1rem;
+    border-right: 2px solid var(--farbe-blau);
 }
 
-.projekt-detail-content {
-    background-color: var(--farbe-hintergrundblau);
-    color: var(--farbe-hintergrund);
-    padding: 6rem 1.5rem;
+/* Die sichtbare Trennlinie */
+.slider-linie {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--slider-pos);
+    width: 3px;
+    background: var(--verlauf-akzent);
+    /* Nutzt deinen coolen Pink-Blau-Verlauf */
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Der runde Button auf der Linie */
+.slider-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 44px;
+    height: 44px;
+    background: var(--farbe-schwarz);
+    border: 3px solid var(--farbe-weiss);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Design-Akzent für den Button (Zwei kleine Pfeile angedeutet durch CSS) */
+.slider-button::before,
+.slider-button::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+.slider-button::before {
+    border-width: 5px 6px 5px 0;
+    border-color: transparent var(--farbe-weiss) transparent transparent;
+    left: 10px;
+}
+
+.slider-button::after {
+    border-width: 5px 0 5px 6px;
+    border-color: transparent transparent transparent var(--farbe-weiss);
+    right: 10px;
+}
+
+/* Der unsichtbare Range-Input, der die Steuerung übernimmt */
+.slider-range {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-}
-
-.projekt-content-innen {
-    max-width: 75ch;
-    margin: 0 auto;
-    font-family: var(--font-body);
-    font-size: 1rem;
-    line-height: 1.7;
-}
-
-
-/* ---DESKTOP ANPASSUNG (Bilder nebeneinander)--- */
-@media (min-width: 768px) {
-    .bilder-vergleich-container {
-        flex-direction: row;
-    }
-
-    .projekt-detail-titel {
-        font-size: 3rem;
-    }
+    height: 100%;
+    opacity: 0;
+    /* Komplett unsichtbar, liegt aber wie eine Glasscheibe über allem */
+    cursor: ew-resize;
+    z-index: 3;
+    margin: 0;
 }
 
 /* Blauer Content-Bereich */

@@ -17,3 +17,14 @@ overlay.addEventListener('click', () => {
     burgerBtn.classList.remove('is-open');
     burgerBtn.setAttribute('aria-expanded', false);
 });
+
+// Vorher-Nachher Slider für Projekt 1 initialisieren
+const sliderInput = document.getElementById('projekt1Slider');
+const sliderContainer = document.querySelector('.slider-container');
+
+if (sliderInput && sliderContainer) {
+    sliderInput.addEventListener('input', (e) => {
+        // Schreibt den aktuellen Prozentwert live in die CSS-Variable
+        sliderContainer.style.setProperty('--slider-pos', `${e.target.value}%`);
+    });
+}

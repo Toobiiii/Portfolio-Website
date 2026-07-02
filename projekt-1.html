@@ -44,26 +44,29 @@
 
     <main>
         <section class="projekt-detail-header">
+            <div class="projekt-header-innen">
+                <h1 class="projekt-titel">Ein kleines Stück Japan auf dem Campus</h1>
 
-            <h1 class="projekt-detail-titel">Ein kleines Stück Japan auf dem Campus</h1>
+                <div class="slider-container" style="--slider-pos: 50%;">
 
-            <div class="bilder-vergleich-container">
-
-                <div class="bild-vergleich-rahmen">
-                    <div class="bild-vergleich-box">
-                        <img src="bilder/projekt-1-vorher.png" alt="Vorher - Japan auf dem Campus">
-                        <span class="bild-label label-vorher">Vorher</span>
-                    </div>
-                </div>
-
-                <div class="bild-vergleich-rahmen">
-                    <div class="bild-vergleich-box">
+                    <div class="slider-img img-nachher">
                         <img src="bilder/projekt-1.jpeg" alt="Nachher - Japan auf dem Campus">
-                        <span class="bild-label label-nachher">Nachher</span>
+                        <span class="slider-label label-nachher">Nachher</span>
                     </div>
+
+                    <div class="slider-img img-vorher">
+                        <img src="bilder/projekt-1-vorher.png" alt="Vorher - Japan auf dem Campus">
+                        <span class="slider-label label-vorher">Vorher</span>
+                    </div>
+
+                    <div class="slider-linie">
+                        <div class="slider-button"></div>
+                    </div>
+
+                    <input type="range" min="0" max="100" value="50" class="slider-range" id="projekt1Slider"
+                        aria-label="Vorher-Nachher Schieberegler">
                 </div>
             </div>
-
         </section>
 
         <section class="projekt-detail-content">
